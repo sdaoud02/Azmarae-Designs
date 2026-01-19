@@ -664,22 +664,15 @@
     <script>
         // Form floating labels
         document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
-            const toggleFocus = () => {
-                if (input.value) {
-                    input.parentElement.classList.add('focused');
-                } else {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                if (!input.value) {
                     input.parentElement.classList.remove('focused');
                 }
-            };
-
-            input.addEventListener('focus', toggleFocus);
-            input.addEventListener('blur', toggleFocus);
-
-            // Add this line for select elements
-            input.addEventListener('change', toggleFocus);
-
-            // Initialize state on page load (in case select has preselected value)
-            toggleFocus();
+            });
         });
 
         // FAQ toggle
@@ -707,6 +700,7 @@
                 const submitBtn = form.querySelector('.btn');
                 const originalText = submitBtn.textContent;
 
+                // Show loading state
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
