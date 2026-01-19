@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story – Azmarae | Quiet Confidence Redefined</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="description"
+        content="Discover the story behind Azmarae. Born from a desire to redefine quiet confidence through intentional design and mindful living." />
+
+    <style>
+        :root {
+            --text: #0f172a;
+            --muted: #64748b;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --light-bg: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(120, 180, 255, 0.35), transparent 40%),
+                radial-gradient(circle at 80% 25%, rgba(180, 220, 255, 0.35), transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(200, 230, 255, 0.35), transparent 50%),
+                linear-gradient(180deg, #f9fbff, #eef2f7);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 30%, rgba(168, 85, 247, 0.12), transparent 40%),
+                radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.08), transparent 40%);
+            z-index: -1;
+        }
+
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .logo-large {
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--text);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .logo-large::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--accent);
+            animation: lineExpand 2s ease-out;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Story Sections */
+        .story-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .story-card p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 45%;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -60px;
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(168, 85, 247, 0.05));
+            padding: 8rem 2rem;
+            margin: 8rem 0;
+            border-radius: 40px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 600px;
+            margin: 6rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent), #2563eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(229, 231, 235, 0.8);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        footer .socials a {
+            color: var(--text);
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+
+        footer .socials a:hover {
+            color: var(--accent);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .logo-large {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+
+            .timeline-item::before {
+                left: -50px !important;
+                right: auto !important;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-large {
+                font-size: 2rem;
+                letter-spacing: 0.1em;
+            }
+
+            .about-hero {
+                padding: 4rem 1rem;
+            }
+
+            .story-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Home.html" class="logo">AZMARAE</a>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="hero-bg"></div>
+            <div class="logo-container">
+                <div class="logo-large">AZMARAE</div>
+            </div>
+            <p class="hero-subtitle">
+                More than a name — a philosophy of becoming. Where quiet confidence meets intentional design,
+                and mindful living becomes an art form. Azmarae’s identity is rooted in balance—softness with strength,
+                structure with flow.
+                The sharp yet elegant lines symbolize inner confidence and resilience, while the refined details reflect
+                thoughtfulness and care in design.
+
+            </p>
+        </section>
+
+        <section class="story-section">
+            <h2 class="section-title">OUR STORY</h2>
+            <p
+                style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; color: var(--muted);">
+                Azmarae was born from a quiet realization: true luxury isn't loud. It's in the subtle details,
+                the thoughtful choices, the spaces between words. We create for those who understand that the most
+                powerful statements are often the quietest.
+            </p>
+
+
+            <section class="values-section">
+                <h2 class="section-title">OUR VALUES</h2>
+                <div class="value-cards">
+                    <div class="value-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Intentionality</h3>
+                        <p>Every design choice serves a purpose. Nothing is arbitrary.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Quality</h3>
+                        <p>Crafted to last, designed to evolve with you.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Mindfulness</h3>
+                        <p>Creating with awareness of impact and intention.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-infinity"></i>
+                        <h3>Timelessness</h3>
+                        <p>Designs that transcend trends and seasons.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; font-weight: 300;">JOIN OUR STORY</h2>
+                <p style="color: var(--muted); margin-bottom: 3rem; font-size: 1.1rem;">
+                    Become part of a community that values quiet confidence and intentional design.
+                </p>
+                <a href="Shop.html" class="btn">Explore Collections</a>
+            </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Azmarae Designs. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Quiet confidence, redefined.</p>
+        <div class="socials">
+            <a href="https://instagram.com/azmaraedesigns" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@azmaraedesigns" target="_blank" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://pinterest.com/azmarae" target="_blank" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Timeline animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        timelineItems.forEach(item => observer.observe(item));
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    window.location.href = targetId;
+                }
+            });
+        });
+
+        // Floating background animation
+        document.addEventListener('mousemove', (e) => {
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) {
+                const x = (window.innerWidth - e.pageX) / 100;
+                const y = (window.innerHeight - e.pageY) / 100;
+                heroBg.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
+</body>
+
+</html>

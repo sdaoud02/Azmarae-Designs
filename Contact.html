@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – Azmarae | Connect With Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="description"
+        content="Get in touch with Azmarae. We're here to connect, collaborate, and create meaningful conversations around intentional design." />
+
+    <style>
+        :root {
+            --text: #0f172a;
+            --muted: #64748b;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --light-bg: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(120, 180, 255, 0.35), transparent 40%),
+                radial-gradient(circle at 80% 25%, rgba(180, 220, 255, 0.35), transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(200, 230, 255, 0.35), transparent 50%),
+                linear-gradient(180deg, #f9fbff, #eef2f7);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Hero */
+        .contact-hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 30%, rgba(168, 85, 247, 0.12), transparent 40%),
+                radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.08), transparent 40%);
+            z-index: -1;
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .contact-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--accent);
+            animation: lineExpand 2s ease-out;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .contact-card,
+        .form-container,
+        .faq-container {
+            background: #ffffff;
+            border-radius: 26px;
+            padding: 2.5rem;
+            box-shadow:
+                0 0 0 8px rgba(255, 255, 255, 0.8),
+                /* white frame */
+                0 20px 45px rgba(0, 0, 0, 0.08);
+            /* soft drop shadow */
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .contact-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            max-width: 800px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .form-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            justify-content: center;
+
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 1.5rem;
+            top: 1.2rem;
+            color: var(--muted);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0 0.5rem;
+        }
+
+        .form-group input:focus~label,
+        .form-group input:not(:placeholder-shown)~label,
+        .form-group textarea:focus~label,
+        .form-group textarea:not(:placeholder-shown)~label {
+            top: -0.5rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent), #2563eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .faq-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            color: var(--muted);
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(229, 231, 235, 0.8);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        footer .socials a {
+            color: var(--text);
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+
+        footer .socials a:hover {
+            color: var(--accent);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .contact-form-section {
+                max-width: 1200px;
+                margin: 4rem auto;
+            }
+
+            .form-container {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+
+            nav {
+                gap: 1rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-hero {
+                padding: 4rem 1rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .faq-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Home.html" class="logo">AZMARAE</a>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="hero-bg"></div>
+            <h1>Let's Connect</h1>
+            <p>We're here to listen, collaborate, and create meaningful conversations around intentional design.</p>
+        </section>
+        <section class="contact-grid">
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>For inquiries, collaborations, or just to say hello.</p>
+                <a href="mailto:azmaraedesigns@outlook.com" class="contact-link">
+                    azmaraedesigns@outlook.com →
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p>Available Monday to Friday, 9 AM – 5 PM MST.</p>
+                <a href="tel:+18253656868" class="contact-link">
+                    +1 (825) 365-6868 →
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <h3>Visit Us</h3>
+                <p>Based in the heart of Downtown Calgary.</p>
+                <p>📍 Downtown Core<br>Calgary, Alberta, Canada</p>
+                <a href="https://www.google.com/maps/place/Downtown,+Calgary,+AB/" target="_blank" class="contact-link">
+                    View on Google Maps →
+                </a>
+            </div>
+
+            <div class="contact-card" style="padding:0; overflow:hidden;">
+                <iframe src="https://www.google.com/maps?q=Downtown%20Calgary%20AB&output=embed" loading="lazy"
+                    style="width:100%;height:100%;border:0;">
+                </iframe>
+            </div>
+
+        </section>
+
+
+        <section class="contact-form-section">
+            <div class="form-container">
+                <h2 class="form-title">Send a Message</h2>
+
+                <form class="contact-form" action="https://formspree.io/f/mojjvzwd" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder=" " required />
+                        <label for="name">Your Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required />
+                        <label for="email">Email Address</label>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="inquiry" name="inquiry" required>
+                            <option value="" disabled selected></option>
+                            <option value="general">General Inquiry</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="support">Customer Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="inquiry">Type of Inquiry</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What is your response time?</div>
+                    <div class="faq-answer">We respond within 24–48 hours.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What is your brand promise?</div>
+                    <div class="faq-answer">Quiet confidence. Intentional design. Lasting quality.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How are you different from competitors?</div>
+                    <div class="faq-answer">More thoughtful. More refined. More intentional.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Azmarae Designs. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Quiet confidence, redefined.</p>
+        <div class="socials">
+            <a href="https://instagram.com/azmaraedesigns" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@azmaraedesigns" target="_blank" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://pinterest.com/" target="_blank" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Form floating labels
+        document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Form submission
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const submitBtn = form.querySelector('.btn');
+                const originalText = submitBtn.textContent;
+
+                // Show loading state
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Success
+                        submitBtn.textContent = 'Message Sent!';
+                        submitBtn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
+                        form.reset();
+
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.background = 'linear-gradient(135deg, var(--accent), #2563eb)';
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    submitBtn.textContent = 'Error - Try Again';
+                    submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #f87171)';
+
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = 'linear-gradient(135deg, var(--accent), #2563eb)';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }
+            });
+        }
+
+        // Animate cards on scroll
+        const cards = document.querySelectorAll('.contact-card');
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+
+</html>
